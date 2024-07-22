@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로필</title>
+    <style>
+        #container{
+            width: 1200px;
+            margin: 0px auto;
+        }
+        a{
+            text-decoration: none;
+            color: blue;
+        }
+        img{
+            border: 50%;
+            width: 200px;
+        }
+        .sidebar{
+            width: 200px;
+            height: 750px;
+            background-color: #eee;
+            float: left;
+        }
+        #contents{
+            float: left;
+            width: 800px;
+            height: 750px;
+            background-color: #ad9e9e;
+        }
+        .profile{
+            text-align: center;
+        }
+        table{
+            width: 70%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td,th{
+            border:1px solid black; 
+            padding:5px;  
+            font-size:0.8em;
+        }
+        .back_color{
+            background-color: lightgray;
+        }
+        .set{
+            border: 2px dotted;
+        }
+    </style>
+</head>
+
+<body>
+<div id="container">
+    <aside class="sidebar">
+            <img src="../images/star.png" alt="">
+            <h1>tae geun</h1>
+            <p>목표를 위해</p>
+            <br>
+            <p>incheon,korea</p>
+            <p>test@naver.com</p>
+            <p><a href="https://github.com/songtaeg/Java_project">github(JAVA)</a></p>
+            <p><a href="https://github.com/songtaeg/html">github(HTML)</a></p> 
+    </aside>        
+    <div id="contents">
+            <section class="profile">
+                <h2>자기소개</h2>
+                <p><mark>프로그래밍</mark>에 관심이 많습니다. <br>현재 열심히 공부하며 코딩 중!</p>
+            </section>
+            <hr class="set">
+            <section>
+                <h2>experience</h2>
+            <ul>
+                <li>프론트엔드
+                    <ul>
+                        <li>HTML/CSS/JAVASCRIPT </li> 
+                    </ul>
+                </li>
+                <li>백엔드
+                    <ul>
+                        <li>JAVA </li>
+                        <li>ORACLE(DB)</li>
+                    </ul>                        
+                </li>
+            </ul>
+            </section>
+        <hr class="set">
+        <section>
+            <h2 class="subtitle">보유 기술</h2>
+            <li style="list-style: none;"> 
+                <ul>
+                    <li>자바 </li>
+                    <li>오라클(DB)</li>
+                    <li>파이썬</li>
+                </ul>                       
+            </li>
+        </section>
+        <hr class="set">
+        <section>
+            <h2 class="school">Education</h2>
+            <table>
+              <caption style="font-weight: bold;">학력 사항</caption>
+              <thead>
+                  <tr class="back_color">
+                      <th>출신학교</th>
+                      <th>전공</th>
+                      <th>기간</th>
+                      <th>구분</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>안양대학교</td>
+                      <td>정보통신학과</td>
+                      <td>2015.3 ~ 2021.2</td>
+                      <td>졸업</td>
+                  </tr>
+                  <tr>
+                      <td>고등학교</td>
+                      <td> - </td>
+                      <td>2012.3 ~ 2015.2</td>
+                      <td>졸업</td>
+                  </tr>
+              </tbody>
+            </table>
+        </section>
+    </div>
+</div> 
+</body>
+</html>
