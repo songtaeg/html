@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../images/star.png" id="img1">
+</body>
+</html>
+<script>
+    var obj=document.querySelector("#img1");
+    obj.onclick=function(e){
+        // obj.src="../images/flower.jpg";
+        // console.log("이벤트유형==>",e.type);
+        // console.log("x 위치",e.pageX);
+        // console.log("y 위치",e.pageY);
+        // console.log(e);
+    }
+    //obj.addEventListener("mouseover",function(){alert("test");});
+    obj.addEventListener("mouseover",()=> {
+        obj.src="../images/background2.jpg"
+    });
+    obj.addEventListener("mouseout",()=>{
+        obj.src="../images/star.png"
+    });
+</script>

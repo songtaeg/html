@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="pagemove()">페이지 이동</button>
+    <button onclick="popup()">팝업</button>
+    <button onclick="pageclose()">페이지 닫기</button>
+</body>
+</html>
+<script>
+    function pagemove(){
+        location.href="practice2.html";
+    }
+    function pageclose(){
+        close();
+    }
+    function popup(){
+        var left=(screen.availWidth-500)/2;
+        var top=(screen.availHeight-300)/2;
+        window.open("practice2.html","pop",
+            `width=500,height=500,left=${left},top=${top}`);
+    }
+</script>
