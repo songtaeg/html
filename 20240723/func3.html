@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick="colorChange()">클릭!</button>
+        <button onclick="colorClassName()">클래스</button>
+        <button onclick="colorQuery1()">query</button>
+        <button onclick="colorQuery2()">query2</button>
+    </div>
+    <p class="back">목록</p>
+    <ul>
+        <li>자바</li>
+        <li>오라클</li>
+        <li class="back">html</li>
+        <li>css</li>
+        <li>JAVASCRIPT</li>
+    </ul>
+</body>
+</html>
+<script>
+    function colorChange(){
+        var list=document.getElementsByTagName("li");
+        for(let i=0; i<list.length; i++){
+            list.item(i).style.color="red";
+        }
+        //list.item().style.color="red";
+    }
+
+    function colorClassName(){
+        var list=document.getElementsByClassName("back")
+        for(let i=0; i<list.length; i++){
+            list.item(i).style.backgroundColor="brown";
+        }
+    }
+
+    function colorQuery1(){
+        var item=document.querySelector("p");
+        console.log(item);
+        item.style.color="blue";
+    }
+    function colorQuery2(){
+        var list=document.querySelectorAll("li");
+        console.log(list);
+        for(var i=0; i<list.length; i++){
+            list.item(i).style.backgroundColor="#ccc";
+        }
+    }
+</script>
