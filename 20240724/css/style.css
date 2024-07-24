@@ -1,0 +1,9 @@
+.box{
+    width: 400px;
+    height: 250px;
+    border: 1px solid white;
+}
+.grad{
+    background-color: aquamarine;
+    background: linear-gradient(90deg,red,orange 40%, green);
+}
