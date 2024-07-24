@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            width: 30px;
+        }
+        table, td {
+            width: 300px;
+            border: 1px solid lightgray;
+            border-collapse: collapse;
+            margin-bottom:30px;
+        }
+        td {
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="row">행 
+    <input type="text" id="col">열 
+    <button onclick="fnTable()">작성</button>
+    <div id="content"></div>
+</body>
+</html>
+<script>
+    function fnTable(){
+        var row =document.querySelector("#row").value;
+        var col =document.querySelector("#col").value;
+
+        var table=document.createElement("table");
+            for(var i=0; i<row; i++){
+                var tr=document.createElement("tr");
+                for(var j=0; j<col; j++){
+                    var td=document.createElement("td");
+                    td.innerHTML=i+","+j;
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);   
+            }
+        var con=document.querySelector("#content");
+        con.appendChild(table);     
+    }
+</script>

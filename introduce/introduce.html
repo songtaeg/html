@@ -60,13 +60,14 @@
   <div id="container">
     <aside class="sidebar">
             <img src="../images/star.png" alt="">
-            <h1>song tae geun</h1>
+            <h1>Song Tae Geun</h1>
             <p>의미있게 보내기</p>
             <br>
             <p>incheon,korea</p>
             <p>thdxorms501@naver.com</p>
             <p><a href="https://github.com/songtaeg/Java_project">github(JAVA)</a></p>
             <p><a href="https://github.com/songtaeg/html">github(HTML)</a></p>
+            <div id="time"></div> 
     </aside>         
     <div id="contents">
         <section class="profile">
@@ -130,8 +131,24 @@
               </tbody>
             </table>
         </section>
+        <hr class="set">
+        <h2>실습</h2>
+        <div>
+            <a href="event.html" target="_self">자바스크립트(이벤트)</a>
         </div>
     </div>
 </div>  
 </body>
 </html>
+<script>
+    setInterval( ()=>{
+        var time =new Date();
+        var obj =document.querySelector("#time");
+
+        var h=time.getHours();
+        var m=time.getMinutes();
+        var s=time.getSeconds();
+
+        obj.innerHTML=h+":"+m+":"+s;
+    },1000);
+</script>
