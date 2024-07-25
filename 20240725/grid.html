@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+            grid-template-rows:minmax(100px,auto);
+            gap:20px 30px; /*grid-gap*/
+        }
+        .txt{
+            background-color: bisque;
+            padding: 10px;
+        }
+        .txt:nth-child(odd){
+            background-color: darkkhaki;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit fugiendis, credere invidus maior
+                        Nosque quanti quietem posuere egestas errore necessariae, stabilique iustioribus partem.</div>
+        <div class="txt">Cepisse tribuat collegi astris, vias Fidem dolendum dissentiunt magnosque praetermittatur inprobitatem. 
+                        Iniuria voluptatis meminerimus sero atomorum</div>
+        <div class="txt">Vacillare cupiditatum quondam cogitavisse comparandae, meis.</div>
+        <div class="txt">Maximos finiri ornare delicatissimi solitudo</div>
+        <div class="txt">Affecta suscipit iucunditas, causae sapienter potenti molestiam possum.</div>
+    </div>
+</body>
+</html>

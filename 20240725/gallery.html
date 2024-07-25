@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        img{
+            width: 200px; 
+            height: 200px;
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+            grid-template-rows:minmax(100px,auto);
+            gap:20px; /*grid-gap*/
+        }
+        .box{
+            background-color: white;
+        }
+        .card{
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="box card">
+            <h3>사진 제목</h3>
+            <img src="../images/flower.jpg">
+            <p>설명:Lorem ipsum dolor sit amet, consectetur adipiscing elit fugiendis, credere invidus maior</p>
+        </div>
+        <div class="box card">
+            <h3>사진 제목</h3>
+            <img src="../images/star.png">
+            <p>설명:Iniuria voluptatis meminerimus sero atomorum</p>
+        </div>
+        <div class="box card">
+            <h3>사진 제목</h3>
+            <img src="../images/background.jpg">
+            <p>설명:Maximos finiri ornare delicatissimi solitudo</p>
+        </div>
+        <div class="box card">
+            <h3>사진 제목</h3>
+            <img src="../images/top.jpg">
+            <p>설명:Maximos finiri ornare delicatissimi solitudo</p>
+        </div>
+        <div class="box card">
+            <h3>사진 제목</h3>
+            <img src="../images/background5.jpg">
+            <p>설명:Maximos finiri ornare delicatissimi solitudo</p>
+        </div>
+    </div>
+</body>
+</html>
