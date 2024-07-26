@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>자바</li>
+        <li>오라클</li>
+        <li><span>html</span></li>
+        <li>javascript</li>
+        <li>jquery</li>
+    </ul>
+    <div>
+        <button id="btn">클릭</button>
+    </div>
+</body>
+</html>
+<script>
+    $("#btn").on("click",()=>{
+        // $("li").css("color","brown");
+        // $("li:has(span)").css("color","brown");
+        // $("li:eq(2)").css("color","blue"); //인덱스 2
+        // $("li:gt(2)").css("color","blue"); //2번보다 큰 인덱스
+        // $("li:lt(2)").css("color","red"); //2번보다 작은 인덱스
+        // $("li:even").css("color","green"); //홀 even 짝 odd
+        // $("li:first").css("color","green");
+        // $("li:last").css("color","green");
+
+        // var items=$("li");
+        // console.log(items.length);
+    })
+</script>

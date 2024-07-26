@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="text">2번째</div>
+    <img src="../images/park2.jpg">
+    <div>
+        <button id="btn">클릭</button>
+    </div>
+</body>
+</html>
+<script>
+     $("#text").css("color","red");
+
+     $("#btn").on("click",()=>{
+        $("img").attr("src","../images/background5.jpg")
+     });
+</script>
