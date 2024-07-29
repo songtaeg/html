@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        table,tr,th,td{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+            padding : 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"> 
+        <button @click="fnlist">클릭</button>
+        <div v-for="item in list">
+            {{item}}
+        </div>
+        <hr>
+        <!--인덱스 활용-->
+        <div v-for="(item,index) in list">
+            {{index+1}}. {{item}}
+        </div> 
+        <hr>
+        <div v-for="item in userList"> 
+            {{item.name}}
+        </div>
+        <hr>
+        <table>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+            <tr v-for="item in userList"> <!-- v-for,v-if 함께 사용 x-->
+                <!-- <template v-if="item.age>=30">
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.addr}}</td>
+                </template>  -->
+                <td>
+                    <span v-if="item.age>=30" style="color: blue;">{{item.name}}</span>
+                    <span v-else>{{item.name}}</span>
+                </td>
+                <td>{{item.age}}</td>
+                <td>{{item.addr}}</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+            data() {
+                return {
+                    // 변수 영역, ex) name : '홍길동', age : 20
+                    list:["java","oracle","html/css","javascript"],
+
+                    userList:[
+                        {name:"kim",age:22,addr:"서울"},
+                        {name:"min",age:27,addr:"대구"},
+                        {name:"park",age:32,addr:"광주"},
+                        {name:"song",age:29,addr:"인천"}
+                    ]
+                };
+            },
+            methods: {
+               // 메소드 영역 
+               fnlist(){
+                for(var i=0; i<this.list.length; i++){
+                    alert(this.list[i])
+                }
+               },
+               //select * from userList where age>=30
+            },
+            mounted() {
+                // 처음 시작할 때 실행되는 부분
+            }
+        });
+        app.mount('#app');
+</script>

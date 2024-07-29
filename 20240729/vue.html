@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app"> 
+    <div>{{name}}</div>
+    <div>
+        <input type="text" placeholder="이름 입력" v-model="newName">
+        <!--{{newName}}-->
+        <!-- 연결: value, v-model -->
+        <button @click="changeName()">이름 변경</button>
+    </div>
+    <hr>
+    <div v-if="isAge">{{age}}</div>
+    <div>
+        <button @click="fnViewAge()">
+            <template v-if="!isAge">나이 보이게 하기</template>
+            <template v-else>나이 감추기</template>
+        </button>
+    </div>
+    </div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+            data() {
+                return { //변수 영역(name:'',age:'')
+                    name:'song',
+                    age:20,
+                    newName:"",
+                    isAge:false,
+                    //txt:"나이 보이게 하기"
+                };
+            },
+            methods: {
+               //메소드
+               changeName(){
+                    //this.name="Kim"; //this 확인
+                    this.name=this.newName;
+                    this.newName="";
+               },
+
+               fnViewAge(){
+                this.isAge=!this.isAge; //(false=>true=>false...)
+                //this.txt=this.isAge ? "나이 감추기": "나이 보이게 하기";
+               }
+            },
+            mounted() {
+                //처음 시작할 때 실행되는 부분
+            }
+        });
+        app.mount('#app');
+</script>
