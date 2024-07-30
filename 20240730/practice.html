@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body{
+            background: lightgray;
+            padding: 20px;
+        }
+        #app{
+            background:white;
+            border-radius: 1%;
+            border:1px solid black;
+            padding: 20px;
+            width: 400px;
+            margin: 30px auto;
+            line-height: 30px;
+        }
+ 
+        label{
+            float: left;
+            font-size: 15px;
+            width:150px;
+        }
+        #app button{
+            border-radius: 20px;
+            font-size: 16px;
+            display: inline-block;
+            margin: auto;
+            padding: 20px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"> 
+        <h4>학생 추가</h4>
+            <div>
+                <label>학번</label>
+                <input placeholder="text" v-model="stuNo">
+            </div>
+            <div><label>이름</label>
+                <input type="text"  v-model="stuName"></div>
+            <div><label>학과</label>
+                <input type="text" v-model="stuDept"></div>
+            <div>
+                <label>학년</label>
+                <select v-model="stuGrade">
+                    <option>1학년</option>
+                    <option>2학년</option>
+                    <option>3학년</option>
+                    <option>4학년</option>
+                </select>
+            </div>
+            <div><label><input type="radio" v-model="stuGender">남자</label></div>  
+            <div><label><input type="radio" v-model="stuGender">여자</label></div>
+            
+            <div><button @click="fnSave">제출</button>
+    </div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+            data() {
+                return {
+                    stuNo:"",
+                    stuName:"",
+                    stuDept:"",
+                    stuGrade:"",
+                    stuGender:""
+                };
+            },
+            methods: {
+                fnSave(){
+                     var self=this;
+                     var url=`http://192.168.30.45:3000/update?stuNo=${item.STU_NO}&stuName=${item.STU_NAME}&stuGrade=${item.STU_GRADE}&stuGender=${item.STU_GENDER}&stuDept=${item.STU_DEPT}`
+                    $.ajax({
+                        url : url,
+                        dataType : "json",
+                        type : "GET",
+                        data : {},
+                        success : function(data){
+                            //console.log(data);
+                            //self.list=data;
+                            alert(data[0].message);
+                    }
+                });
+                }
+            },
+            mounted() {
+                // 처음 시작할 때 실행되는 부분
+            }
+        });
+        app.mount('#app');
+</script>
