@@ -89,7 +89,7 @@
             fnGetList(){
                 var self=this;
                 $.ajax({
-                    url : `http://192.168.30.45:3000/list?keyword=${self.keyword}&grade=${self.stuGrade}`,
+                    url : `http://localhost:3000/list?keyword=${self.keyword}&grade=${self.stuGrade}`,
                     dataType : "json",
                     type : "GET",
                     data : {},

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <meta charset="EUC-KR">
+    <title>join</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <label>아이디: <input type="text" placeholder="아이디" v-model="user.id"></label>
+        <button @click="Idcheck"> 중복체크</button>
+    </div>
+    <div>
+        <label>비밀번호: <input type="password" placeholder="비밀번호" v-model="user.pwd"></label>
+    </div>
+    <div>
+        <label>비밀번호 확인: <input type="password" placeholder="비밀번호" v-model="checkpwd"></label>
+    </div>
+    <div>
+        <label>이름: <input type="text" placeholder="이름" v-model="user.name"></label>
+    </div>
+    <div>
+        <label>메일: <input type="text" placeholder="메일" v-model="user.mail"></label>
+    </div>
+    <div>
+        <label>전화번호: <input type="text" placeholder="전화" v-model="user.phone"></label>
+    </div>
+    <div>
+        <label> <input type="radio" value="M" v-model="user.gender">남자</label>
+        <label> <input type="radio" value="F" v-model="user.gender">여자</label>
+    </div>
+    <div>
+        <button @click="fnJoin">회원가입</button>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                user:{
+                    id:"",
+                    pwd:"",
+                    name:"",
+                    mail:"",
+                    phone:"",
+                    gender:""
+                },
+                checkpwd:"",
+            };
+        },
+        methods: {
+            fnJoin(){
+                var self=this;
+                if(self.user.id.length <=4){
+                    alert("아이디는 5글자 이상");
+                    return;
+                } 
+                if(self.user.pwd.length <=5){
+                    alert("비밀번호는 6글자 이상");
+                    return;
+                }
+                if(self.user.pwd !== self.checkpwd){
+                    alert("비밀번호가 일치하지 않습니다.");
+                    return;
+                }
+                if(!self.user.id || !self.user.pwd || !self.user.name || !self.user.mail || !self.user.phone || !self.user.gender){
+                    alert("모두 채워야 합니다.");
+                    return;
+                }
+                $.ajax({
+                    url : "http://localhost:3001/join",
+                    dataType : "json",
+                    type : "POST",
+                    data : JSON.stringify(self.user),
+                    contentType:"application/json",
+                    success : function(data){
+                       console.log(data);
+                       alert(data.message);
+                    }
+                });
+            },
+            Idcheck(){
+                var self=this;
+                $.ajax({
+                    url : "http://localhost:3001/idcheck",
+                    dataType : "json",
+                    type : "POST",
+                    data : JSON.stringify(self.user),
+                    contentType:"application/json",
+                    success : function(data){
+                        if(data[0].CNT>0){
+                            alert("이미 있는 아이디입니다");
+                            return;
+                        }else{
+                            alert("사용가능한 아이디입니다");
+                        }
+                    }
+                });
+            }
+        },
+        mounted() {
+            
+        }
+    });
+    app.mount('#app');
+</script>

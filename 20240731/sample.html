@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>학생 추가</title>
+</head>
+<body>
+    <div id="app">
+        <input placeholder="학번" v-model="stuNo">
+        <input placeholder="이름" v-model="stuName">
+        <input placeholder="학과" v-model="stuDept">
+        <button @click="fnInsert">추가</button>
+        <button @click="">실행</button>
+    </div>
+</body>
+</html>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                stuNo:"",
+                stuName:"",
+                stuDept:""
+            };
+        },
+        methods: {
+            fnInsert(){ //20142021
+                var self=this;
+                var url=`http://localhost:3000/plus?stuNo=${this.stuNo}&stuName=${this.stuName}&stuDept=${this.stuDept}`;
+                $.ajax({
+                    url : url,
+                    dataType : "json",
+                    type : "GET",
+                    data : {},
+                    success : function(data){
+                        //console.log(data);
+                        alert(data.message);
+                    }
+                });
+            }
+        },
+        mounted() {
+           
+        }
+    });
+    app.mount('#app');
+    
+</script>
