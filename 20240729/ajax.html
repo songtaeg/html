@@ -6,6 +6,7 @@
     <meta charset="EUC-KR">
     <title>Insert title here</title>
     <style>
+ 
         table,tr,td,th{
             border: 1px solid black;
             text-align: center;
@@ -22,6 +23,10 @@
         .txt2{
             color: blueviolet;
         }
+        .btn{
+            text-align: right;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
@@ -36,16 +41,17 @@
     <button @click="fnGetList">검색</button>
     <table>
         <tr>
+            <th>선택</th>
             <th>학번</th>
             <th>이름</th>
             <th>학과</th>
             <th>학년</th>
             <th>성별</th>
             <th>수정</th>
-            <th>삭제</th>
         </tr>
-        <tr v-for="item in list">
+        <tr v-for="(item,index) in list">
             <template v-if="item.STU_NO==updateStuNo">
+                <td></td>
                 <td>{{item.STU_NO}}</td>
                 <td><input v-model="item.STU_NAME"></td>
                 <td><input v-model="item.STU_DEPT"></td>
@@ -54,7 +60,8 @@
                 <td><button @click="fnSave(item)">저장</button></td>
             </template>
             <template v-else>
-                <td>{{item.STU_NO}}</td>
+                <td><input type="radio" :id="'stu-'+index" name="stuKey" :value="item.STU_NO" v-model="selected"></td>
+                <td><label :for="'stu-'+index">{{item.STU_NO}}</label></td>
                 <td>{{item.STU_NAME}}</td>
                 <!--<td :class="{txt : item.STU_DEPT == '기계'}">{{item.STU_DEPT}}</td>-->
                 <td>{{item.STU_DEPT}}</td>
@@ -67,9 +74,10 @@
                 </td>
                 <td><button @click="fnUpdate(item.STU_NO)">수정</button></td>
             </template>
-            <td><button @click="fnRemove(item.STU_NO)">삭제</button></td>
         </tr>
     </table>
+
+    <button class="btn" @click="fnRemove()">삭제</button>   
 </div>
 
 </body>
@@ -82,7 +90,8 @@
                 //stuNo:""
                 keyword:"",
                 updateStuNo:"",
-                stuGrade:""
+                stuGrade:"",
+                selected:""
             };
         },
         methods: {
@@ -103,13 +112,13 @@
                 console.log(stuNo);
                 this.updateStuNo=stuNo;
             },
-            fnRemove(stuNo){
+            fnRemove(){
                 if(!confirm("삭제하시겠습니까?")){
                     return;
                 };
                 var self=this;
                 $.ajax({
-                    url : `http://192.168.30.45:3000/delete?stuNo=${stuNo}`,
+                    url : `http://192.168.30.45:3000/delete?stuNo=${self.selected}`,
                     dataType : "json",
                     type : "GET",
                     data : {},
